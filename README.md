@@ -73,5 +73,3 @@ Open the folder, run code.html in any browser, and you're ready to go.
 ---
 
 *+ Happy Coding*
-
----
