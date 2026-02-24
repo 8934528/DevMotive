@@ -21,6 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
     nodes.forEach((node, index) => {
         node.style.animation = `float ${3 + index * 0.2}s ease-in-out infinite`;
     });
+
+    // Background image changer
+    const backgroundImages = [
+        'url("assets/b.jpg")',
+        'url("assets/c.jpg")'
+    ];
+    
+    let currentIndex = 0;
+    const body = document.body;
+    
+    // Set background
+    body.style.backgroundImage = backgroundImages[currentIndex];
+    
+    // Change background
+    setInterval(() => {
+        // Fade out effect
+        body.style.transition = 'background-image 1.5s ease-in-out';
+        
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        body.style.backgroundImage = backgroundImages[currentIndex];
+        
+        console.log(`Background changed to: ${backgroundImages[currentIndex]}`);
+        
+    }, 5000); // Change every 5 seconds
 });
 
 const style = document.createElement('style');

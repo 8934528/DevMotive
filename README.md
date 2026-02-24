@@ -8,13 +8,14 @@ The design uses an unconventional, energizing color palette to make the experien
 
 ## Project Structure
 
-DevMotive/
-    ├── assets/
-    |     ├── favicon/
-    |     |      └── favicon.png
-    |     ├── background.png
-    |     └── ImproveYourselfLogo.png
-    ├── code.css
-    ├── code.html
-    ├── code.js
-    └── README.md
+    DevMotive/
+        ├── assets/
+        |     ├── favicon/
+        |     |      └── favicon.png
+        |     ├── b.png
+        |     ├── c.png
+        |     └── ImproveYourselfLogo.png
+        ├── code.css
+        ├── code.html
+        ├── code.js
+        └── README.md
