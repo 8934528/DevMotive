@@ -19,4 +19,5 @@ The design uses an unconventional, energizing color palette to make the experien
         ├── code.css
         ├── code.html
         ├── code.js
+        ├── netlify.toml
         └── README.md
