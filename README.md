@@ -2,13 +2,13 @@
 
 DevMotive helps developers stay motivated by showing daily coding habits on colorful cards. The background changes between two images every 5 seconds.
 
-## 🚀 Purpose
+## Purpose
 
 The goal of this project is to help developers build strong coding habits through structured guidance and visual interaction.
 
 ---
 
-## 📁 What's Inside
+## What's Inside
 
 | File/Folder  | What it does                            |
 |--------------|-----------------------------------------|
@@ -35,7 +35,7 @@ The goal of this project is to help developers build strong coding habits throug
 
 ---
 
-## 🧩 The 12 Cards
+## The 12 Cards
 
 | Card   | What it's about                       |
 |--------|---------------------------------------|
@@ -72,6 +72,6 @@ Open the folder, run code.html in any browser, and you're ready to go.
 
 ---
 
-'Happy Coding'
+*+ Happy Coding*
 
 ---
