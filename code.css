@@ -27,10 +27,6 @@ h1 {
     letter-spacing: -0.02em;
 }
 
-.logo-image {
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
-}
-
 .card {
     transition: transform 0.25s ease-in-out, box-shadow 0.3s ease;
     border-radius: 14px !important;
@@ -189,7 +185,6 @@ h1 {
     border-radius: 12px;
     padding: 15px;
     height: 100%;
-    border-left: 4px solid #6c5ce7;
 }
 
 .explanation-card h6 {
@@ -205,7 +200,6 @@ h1 {
 
 .connections-explanation {
     background: #e8f4f8 !important;
-    border-left: 4px solid #00b894;
 }
 
 /* Background transition overlay */
