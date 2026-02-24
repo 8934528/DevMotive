@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('✨ DevMotive: small habits, big growth. keep going!');
+    console.log('DevMotive: small habits, big growth. keep going!');
 });
