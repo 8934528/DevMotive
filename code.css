@@ -1,13 +1,33 @@
 body {
-    background: linear-gradient(135deg, #f0e9f5 0%, #e0d3ed 100%);
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
     font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 h1 {
     color: #2c1b3a;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.08);
     letter-spacing: -0.02em;
+}
+
+.logo-image {
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
 }
 
 .card {
@@ -43,6 +63,30 @@ h1 {
     opacity: 1;
 }
 
+.card-number {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    line-height: 1;
+}
+
+.special-card {
+    cursor: pointer !important;
+}
+
+.special-card:hover {
+    background: linear-gradient(145deg, #ffd166, #ffb347) !important;
+}
+
+.special-card .badge {
+    font-size: 0.8rem;
+    background-color: rgba(0,0,0,0.7) !important;
+}
+
 /* 11 unique background colors – one for each card */
 .row > .col:nth-child(1) .card { background-color: hsl(350, 70%, 80%); }  /* soft pink */
 .row > .col:nth-child(2) .card { background-color: hsl(25, 80%, 75%); }   /* peach */
@@ -55,3 +99,110 @@ h1 {
 .row > .col:nth-child(9) .card { background-color: hsl(280, 60%, 80%); }  /* orchid */
 .row > .col:nth-child(10) .card { background-color: hsl(40, 80%, 75%); }  /* marigold */
 .row > .col:nth-child(11) .card { background-color: hsl(80, 70%, 75%); }  /* lime */
+.row > .col:nth-child(12) .card { background: linear-gradient(145deg, #ffb6c1, #ffdab9); }  /* special gradient */
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.path-diagram {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.diagram-container {
+    min-width: 800px;
+}
+
+.diagram-level {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.level-title {
+    font-weight: bold;
+    color: #6c5ce7;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.diagram-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.diagram-node {
+    background: linear-gradient(135deg, #6c5ce7, #a363d9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+    transition: transform 0.2s;
+}
+
+.diagram-node.category {
+    background: #fd79a8;
+    font-weight: bold;
+}
+
+.diagram-node.master-node {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    font-size: 1.2rem;
+    padding: 12px 24px;
+}
+
+.diagram-node:hover {
+    transform: scale(1.05);
+    cursor: default;
+}
+
+.connector-line {
+    height: 20px;
+    border-left: 2px dashed #a8a8a8;
+    border-right: 2px dashed #a8a8a8;
+    border-bottom: 2px dashed #a8a8a8;
+    margin: 10px 0;
+    opacity: 0.3;
+}
+
+.explanation-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    height: 100%;
+    border-left: 4px solid #6c5ce7;
+}
+
+.explanation-card h6 {
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.explanation-card p {
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+.connections-explanation {
+    background: #e8f4f8 !important;
+    border-left: 4px solid #00b894;
+}
