@@ -14,8 +14,8 @@ The design uses an unconventional, energizing color palette to make the experien
         ├── assets/
         |     ├── favicon/
         |     |      └── favicon.png
-        |     ├── b.png
-        |     └── c.png
+        |     ├── b.jpg
+        |     └── c.jpg
         ├── code.css
         ├── code.html
         ├── code.js

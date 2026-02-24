@@ -10,125 +10,164 @@
     <link rel="stylesheet" href="code.css">
 </head>
 <body>
+    <!-- Mobile Navigation Toggle -->
+    <nav class="navbar navbar-dark d-lg-none fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand"><i class="bi bi-code-square"></i> DevMotive</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="collapse mobile-nav-menu" id="mobileNav">
+        <div class="d-flex flex-column p-4">
+            <h5 class="text-white mb-3">Quick Tips</h5>
+            <a href="#" class="mobile-nav-link" data-bs-toggle="modal" data-bs-target="#programmingPathModal">
+                <i class="bi bi-diagram-3 me-2"></i>Programming Path
+            </a>
+            <a href="#" class="mobile-nav-link" onclick="event.preventDefault(); scrollToTop();">
+                <i class="bi bi-arrow-up-circle me-2"></i>Back to Top
+            </a>
+            <hr class="bg-white opacity-25">
+            <p class="text-white-50 small mt-2">"Small habits, big growth"</p>
+        </div>
+    </div>
+
+    <!-- Spacer for fixed navbar on mobile -->
+    <div class="mobile-spacer d-lg-none"></div>
+
     <div class="container py-5">
-        <div class="d-flex align-items-center justify-content-center mb-5">
-            <h1 class="display-4 fw-bold text-center mb-0 me-3">Improve Yourself As A Developer.</h1>
+        <div class="d-flex align-items-center justify-content-center mb-3 mb-lg-5">
+            <h1 class="display-4 fw-bold text-center mb-0 me-3 mobile-headline">Improve Yourself As A Developer.</h1>
         </div>
         
         <div class="row g-4" id="cardsContainer">
             <!-- card 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">1</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-code fs-1 mb-3"></i>
                         <h5 class="card-title">Code Daily</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Consistency is key</p>
                     </div>
                 </div>
             </div>
             <!-- card 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">2</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-people fs-1 mb-3"></i>
                         <h5 class="card-title">Learn From Others</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Community matters</p>
                     </div>
                 </div>
             </div>
             <!-- card 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">3</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-easel2 fs-1 mb-3"></i>
                         <h5 class="card-title">Teach Others</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Knowledge shared</p>
                     </div>
                 </div>
             </div>
             <!-- card 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">4</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-journal-text fs-1 mb-3"></i>
                         <h5 class="card-title">Take Notes</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Document journey</p>
                     </div>
                 </div>
             </div>
             <!-- card 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">5</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-kanban fs-1 mb-3"></i>
                         <h5 class="card-title">Make Projects</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Build portfolio</p>
                     </div>
                 </div>
             </div>
             <!-- card 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">6</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-github fs-1 mb-3"></i>
-                        <h5 class="card-title">Use GitGub For Push Code</h5>
+                        <h5 class="card-title">Use GitHub</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Push code daily</p>
                     </div>
                 </div>
             </div>
             <!-- card 7 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">7</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-clipboard-check fs-1 mb-3"></i>
                         <h5 class="card-title">Make Plans</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Structure goals</p>
                     </div>
                 </div>
             </div>
             <!-- card 8 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">8</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-clock fs-1 mb-3"></i>
                         <h5 class="card-title">Spend Time Learning</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Invest in yourself</p>
                     </div>
                 </div>
             </div>
             <!-- card 9 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">9</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-chat-heart fs-1 mb-3"></i>
                         <h5 class="card-title">Be Active In Tech Community</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Network & grow</p>
                     </div>
                 </div>
             </div>
             <!-- card 10 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">10</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-book fs-1 mb-3"></i>
                         <h5 class="card-title">Read Books/Docs</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Deepen knowledge</p>
                     </div>
                 </div>
             </div>
             <!-- card 11 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card">
                     <span class="card-number">11</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-question-circle fs-1 mb-3"></i>
                         <h5 class="card-title">Be Curious</h5>
+                        <p class="card-text small d-none d-sm-block text-muted">Ask questions</p>
                     </div>
                 </div>
             </div>
             <!-- card 12 - Special -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm position-relative special-card" data-bs-toggle="modal" data-bs-target="#programmingPathModal">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm position-relative paper-card special-card" data-bs-toggle="modal" data-bs-target="#programmingPathModal">
                     <span class="card-number">12</span>
                     <div class="card-body d-flex flex-column align-items-center text-center">
                         <i class="bi bi-diagram-3 fs-1 mb-3"></i>
@@ -142,7 +181,7 @@
 
     <!-- Programming Path Modal -->
     <div class="modal fade" id="programmingPathModal" tabindex="-1" aria-labelledby="programmingPathModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="programmingPathModalLabel">The Programming Path</h5>
@@ -150,116 +189,142 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <p class="lead mb-4">Your journey from fundamentals to mastery - each concept builds upon the last, creating a interconnected web of knowledge.</p>
+                        <p class="lead mb-4 text-center">Your journey from fundamentals to mastery - each concept builds upon the last, creating an interconnected web of knowledge.</p>
                         
-                        <!-- Diagram Section -->
-                        <div class="path-diagram mb-5">
+                        <!-- Diagram Section - Mobile Optimized -->
+                        <div class="path-diagram mb-4">
                             <div class="diagram-container">
                                 <!-- Level 1: Foundations -->
-                                <div class="diagram-level">
+                                <div class="diagram-level text-center">
                                     <div class="level-title">Foundations</div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node" data-bs-toggle="tooltip" title="The logic behind everything">Algorithm</div>
-                                        <div class="diagram-node" data-bs-toggle="tooltip" title="The lowest level">Assembly</div>
+                                    <div class="diagram-nodes justify-content-center">
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Algorithm" data-bs-content="The logic behind everything - problem-solving steps, computational thinking, and efficient solutions.">Algorithm</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Assembly" data-bs-content="Lowest level programming - machine code mnemonics, registers, memory management, and hardware interaction.">Assembly</button>
                                     </div>
                                     <div class="connector-line"></div>
                                 </div>
                                 
                                 <!-- Level 2: Core Languages -->
-                                <div class="diagram-level">
+                                <div class="diagram-level text-center">
                                     <div class="level-title">Core Languages</div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node">C</div>
-                                        <div class="diagram-node">C#</div>
-                                        <div class="diagram-node">C++</div>
-                                        <div class="diagram-node">Go</div>
-                                        <div class="diagram-node">Java</div>
-                                        <div class="diagram-node">Python</div>
-                                        <div class="diagram-node">Ruby</div>
-                                        <div class="diagram-node">Rust</div>
-                                        <div class="diagram-node">Scala</div>
+                                    <div class="diagram-nodes justify-content-center">
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="C" data-bs-content="Procedural language, memory manipulation, system programming, and foundation for many modern languages.">C</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="C#" data-bs-content="Modern OOP language by Microsoft, great for Windows apps, game dev with Unity, and enterprise solutions.">C#</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="C++" data-bs-content="Extension of C with OOP, high performance, game development, and system software.">C++</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Go" data-bs-content="Google's language for concurrency, simplicity, and performance - great for cloud services.">Go</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Java" data-bs-content="Write once run anywhere, OOP, enterprise applications, Android development.">Java</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Python" data-bs-content="Versatile, beginner-friendly, great for data science, AI, web dev, and automation.">Python</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Ruby" data-bs-content="Elegant syntax, web dev with Rails, focus on developer happiness.">Ruby</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Rust" data-bs-content="Memory safety without GC, blazing fast, systems programming, web assembly.">Rust</button>
+                                        <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Scala" data-bs-content="Functional + OOP, runs on JVM, great for big data with Spark.">Scala</button>
                                     </div>
                                     <div class="connector-line"></div>
                                 </div>
                                 
                                 <!-- Level 3: Specialized Areas -->
-                                <div class="diagram-level">
+                                <div class="diagram-level text-center">
                                     <div class="level-title">Specializations</div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node category">Mobile</div>
-                                        <div class="diagram-node">Dart</div>
-                                        <div class="diagram-node">Flutter</div>
-                                    </div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node category">Web</div>
-                                        <div class="diagram-node">HTML, CSS, JS</div>
-                                        <div class="diagram-node">Typescript</div>
-                                        <div class="diagram-node">Angular</div>
-                                        <div class="diagram-node">React</div>
-                                        <div class="diagram-node">Node.Js</div>
-                                    </div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node category">Databases</div>
-                                        <div class="diagram-node">MongoDB</div>
-                                        <div class="diagram-node">SQL Server</div>
-                                        <div class="diagram-node">SQLite</div>
-                                        <div class="diagram-node">PostgreSQL</div>
-                                    </div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node category">Advanced</div>
-                                        <div class="diagram-node">Machine Learning</div>
-                                        <div class="diagram-node">Hacking</div>
-                                        <div class="diagram-node">Programming Contest</div>
+                                    
+                                    <div class="specialization-grid">
+                                        
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-6">
+                                                <div class="specialization-group h-100">
+                                                    <div class="category-title">Mobile</div>
+                                                    <div class="diagram-nodes justify-content-start">
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Dart" data-bs-content="Google's language for UI, optimized for Flutter, easy to learn for JS/Java devs.">Dart</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Flutter" data-bs-content="UI toolkit for natively compiled apps, single codebase for mobile, web, desktop.">Flutter</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="specialization-group h-100">
+                                                    <div class="category-title">Web</div>
+                                                    <div class="diagram-nodes justify-content-start">
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="HTML, CSS, JS" data-bs-content="The holy trinity of web: structure (HTML), style (CSS), and interactivity (JavaScript).">HTML, CSS, JS</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Typescript" data-bs-content="JavaScript with types, better tooling, and enterprise-scale applications.">Typescript</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Angular" data-bs-content="Full-featured framework by Google, TypeScript-based, great for large apps.">Angular</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="React" data-bs-content="Library for UI by Facebook, component-based, huge ecosystem.">React</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Node.Js" data-bs-content="JavaScript runtime for server-side, event-driven, npm ecosystem.">Node.Js</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <div class="specialization-group h-100">
+                                                    <div class="category-title">Databases</div>
+                                                    <div class="diagram-nodes justify-content-start">
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="MongoDB" data-bs-content="NoSQL database, document-based, flexible schema, great for scaling.">MongoDB</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="SQL Server" data-bs-content="Microsoft's RDBMS, enterprise features, integration with .NET ecosystem.">SQL Server</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="SQLite" data-bs-content="Lightweight, embedded SQL database, great for mobile and local storage.">SQLite</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="PostgreSQL" data-bs-content="Advanced open-source RDBMS, ACID compliant, great for complex queries.">PostgreSQL</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="specialization-group h-100">
+                                                    <div class="category-title">Advanced</div>
+                                                    <div class="diagram-nodes justify-content-start">
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Machine Learning" data-bs-content="AI development, neural networks, data analysis, Python ecosystem (TensorFlow, PyTorch).">Machine Learning</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Hacking" data-bs-content="Cybersecurity, ethical hacking, penetration testing, security research.">Hacking</button>
+                                                        <button class="diagram-node category-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Programming Contest" data-bs-content="Competitive programming, algorithms mastery, problem-solving under pressure.">Programming Contest</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="connector-line"></div>
                                 </div>
                                 
                                 <!-- Level 4: Computer Programming -->
-                                <div class="diagram-level">
+                                <div class="diagram-level text-center">
                                     <div class="level-title">Mastery</div>
-                                    <div class="diagram-nodes">
-                                        <div class="diagram-node master-node">Computer Programming</div>
+                                    <div class="diagram-nodes justify-content-center">
+                                        <button class="diagram-node master-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Computer Programming" data-bs-content="The holistic understanding - you don't just know languages, you understand paradigms, patterns, and can learn anything new quickly.">Computer Programming</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Detailed Explanations -->
-                        <h4 class="mb-3">Detailed Path Explanation</h4>
-                        <div class="row g-3">
+                        <div class="row g-3 mt-3">
                             <div class="col-md-6">
-                                <div class="explanation-card">
+                                <div class="explanation-card text-start">
                                     <h6><i class="bi bi-1-circle-fill me-2"></i>Foundation Layer</h6>
-                                    <p><strong>Algorithm:</strong> The logical foundation - how to think like a programmer and solve problems efficiently.</p>
-                                    <p><strong>Assembly:</strong> The lowest level of programming, understanding how computers actually execute instructions.</p>
+                                    <p class="small mb-2"><strong>Algorithm:</strong> The logical foundation - how to think like a programmer and solve problems efficiently.</p>
+                                    <p class="small"><strong>Assembly:</strong> The lowest level of programming, understanding how computers actually execute instructions.</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="explanation-card">
+                                <div class="explanation-card text-start">
                                     <h6><i class="bi bi-2-circle-fill me-2"></i>Core Languages</h6>
-                                    <p>Each language teaches different paradigms: C (procedural), C++/Java (OOP), Python (scripting), Rust (memory safety), Go (concurrency). Learn 2-3 deeply, understand others conceptually.</p>
+                                    <p class="small">Each language teaches different paradigms: C (procedural), C++/Java (OOP), Python (scripting), Rust (memory safety), and Go (concurrency). Learn 2-3 deeply, understand others conceptually.</p>
                                 </div>
                             </div>
+                            
                             <div class="col-md-6">
-                                <div class="explanation-card">
+                                <div class="explanation-card text-start">
                                     <h6><i class="bi bi-3-circle-fill me-2"></i>Specializations</h6>
-                                    <p><strong>Mobile:</strong> Dart/Flutter for cross-platform apps<br>
-                                    <strong>Web:</strong> Start with HTML/CSS/JS, then frameworks (React, Angular), add TypeScript, backend with Node.js<br>
-                                    <strong>Databases:</strong> SQL (PostgreSQL, SQL Server, SQLite) for structured data, MongoDB for NoSQL<br>
-                                    <strong>Advanced:</strong> ML (Python), Security (Hacking), Competitive Programming</p>
+                                    <p class="small mb-1"><strong>Mobile:</strong> Dart/Flutter for cross-platform</p>
+                                    <p class="small mb-1"><strong>Web:</strong> Start with HTML/CSS/JS, then frameworks, backend with Node.js</p>
+                                    <p class="small mb-1"><strong>Databases:</strong> SQL (PostgreSQL, SQLite) and NoSQL (MongoDB)</p>
+                                    <p class="small"><strong>Advanced:</strong> ML, Security, Competitive Programming</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="explanation-card">
+                                <div class="explanation-card text-start">
                                     <h6><i class="bi bi-4-circle-fill me-2"></i>Mastery</h6>
-                                    <p><strong>Computer Programming:</strong> The holistic understanding - you don't just know languages, you understand paradigms, patterns, and can learn anything new quickly.</p>
+                                    <p class="small"><strong>Computer Programming:</strong> The holistic understanding - you don't just know languages, you understand paradigms, patterns, and can learn anything new quickly.</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="connections-explanation mt-4 p-3 bg-light rounded">
+                        <!-- How They Connect Section -->
+                        <div class="connections-explanation mt-4 p-3 bg-light rounded text-start">
                             <h6><i class="bi bi-diagram-3 me-2"></i>How They Connect</h6>
-                            <p>Algorithms flow into every language. C and Assembly are foundation for understanding memory. OOP languages (Java, C++, C#) share concepts. Web technologies build on each other: HTML/CSS → JavaScript → frameworks → TypeScript → backend. Databases connect to every language that needs persistence. All paths lead to true Computer Programming mastery.</p>
+                            <p class="small mb-0">Algorithms flow into every language. C and Assembly are foundation for understanding memory. OOP languages (Java, C++, C#) share concepts. Web technologies build on each other. Databases connect to every language that needs persistence. All paths lead to true Computer Programming mastery.</p>
                         </div>
                     </div>
                 </div>

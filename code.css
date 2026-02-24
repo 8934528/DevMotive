@@ -6,6 +6,13 @@ body {
     font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     min-height: 100vh;
     transition: background-image 1.5s ease-in-out;
+    padding-top: 0;
+}
+
+@media (max-width: 991px) {
+    body {
+        padding-top: 60px;
+    }
 }
 
 body::before {
@@ -21,31 +28,122 @@ body::before {
     transition: background-image 1.5s ease-in-out;
 }
 
+/* Mobile Navigation */
+.navbar {
+    background: rgba(44, 27, 58, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    z-index: 1030;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.mobile-nav-menu {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #2c1b3a 0%, #1a1a2e 100%);
+    z-index: 1029;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-nav-link {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: white;
+    padding-left: 10px;
+}
+
+.mobile-spacer {
+    height: 20px;
+}
+
+/* Mobile Headline */
+.mobile-headline {
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    line-height: 1.2;
+    padding: 0 10px;
+}
+
 h1 {
     color: #2c1b3a;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.08);
     letter-spacing: -0.02em;
 }
 
-.card {
-    transition: transform 0.25s ease-in-out, box-shadow 0.3s ease;
+/* Paper Card Effect */
+.paper-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: 14px !important;
     overflow: hidden;
     cursor: default;
+    position: relative;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px -8px rgba(60, 20, 70, 0.25) !important;
+.paper-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.paper-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 30px -5px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset !important;
+}
+
+.paper-card:hover::before {
+    opacity: 0.5;
+}
+
+/* Add subtle paper texture */
+.paper-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .card-body {
-    padding: 2rem 1.2rem;
+    padding: 1.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .card-body {
+        padding: 2rem 1.2rem;
+    }
 }
 
 .card-title {
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     color: #1f1f2b;
     margin-top: 0.5rem;
 }
@@ -54,6 +152,7 @@ h1 {
     color: #1f1f2b;
     opacity: 0.85;
     transition: opacity 0.2s;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
 }
 
 .card:hover i {
@@ -80,7 +179,8 @@ h1 {
 }
 
 .special-card .badge {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    padding: 0.5em 0.8em;
     background-color: rgba(0,0,0,0.7) !important;
 }
 
@@ -117,16 +217,25 @@ h1 {
 .path-diagram {
     background: #f8f9fa;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px;
     overflow-x: auto;
 }
 
+@media (max-width: 768px) {
+    .path-diagram {
+        padding: 10px;
+        margin: 0 -10px;
+        border-radius: 10px;
+    }
+}
+
 .diagram-container {
-    min-width: 800px;
+    min-width: 100%;
+    width: 100%;
 }
 
 .diagram-level {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     position: relative;
 }
 
@@ -135,13 +244,43 @@ h1 {
     color: #6c5ce7;
     margin-bottom: 15px;
     font-size: 1.2rem;
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .level-title {
+        font-size: 1rem;
+    }
 }
 
 .diagram-nodes {
     display: flex;
     flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.specialization-grid {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 15px;
+}
+
+.specialization-group {
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    padding: 12px;
+    height: 100%;
+}
+
+.category-title {
+    font-weight: 600;
+    color: #fd79a8;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-align: left;
+    letter-spacing: 0.5px;
 }
 
 .diagram-node {
@@ -149,30 +288,50 @@ h1 {
     color: white;
     padding: 8px 16px;
     border-radius: 25px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    flex: 0 1 auto;
 }
 
-.diagram-node.category {
+@media (max-width: 576px) {
+    .diagram-node {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+.diagram-node.category-node {
     background: #fd79a8;
-    font-weight: bold;
 }
 
 .diagram-node.master-node {
     background: linear-gradient(135deg, #00b894, #00cec9);
-    font-size: 1.2rem;
-    padding: 12px 24px;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+@media (max-width: 576px) {
+    .diagram-node.master-node {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
 
 .diagram-node:hover {
     transform: scale(1.05);
-    cursor: default;
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.3);
+}
+
+.diagram-node:focus {
+    outline: none;
 }
 
 .connector-line {
-    height: 20px;
+    height: 15px;
     border-left: 2px dashed #a8a8a8;
     border-right: 2px dashed #a8a8a8;
     border-bottom: 2px dashed #a8a8a8;
@@ -180,11 +339,23 @@ h1 {
     opacity: 0.3;
 }
 
+@media (max-width: 576px) {
+    .connector-line {
+        height: 10px;
+    }
+}
+
 .explanation-card {
     background: #f8f9fa;
     border-radius: 12px;
     padding: 15px;
     height: 100%;
+}
+
+@media (max-width: 576px) {
+    .explanation-card {
+        padding: 12px;
+    }
 }
 
 .explanation-card h6 {
@@ -196,10 +367,36 @@ h1 {
 .explanation-card p {
     margin-bottom: 8px;
     color: #34495e;
+    font-size: 0.9rem;
 }
 
 .connections-explanation {
     background: #e8f4f8 !important;
+    border-radius: 12px;
+}
+
+/* Popover Custom Styles */
+.popover {
+    max-width: 280px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.popover-header {
+    background: linear-gradient(135deg, #6c5ce7, #a363d9);
+    color: white;
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    padding: 12px 15px;
+    border: none;
+}
+
+.popover-body {
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #2c3e50;
 }
 
 /* Background transition overlay */
@@ -220,4 +417,21 @@ h1 {
 
 .background-transition.active {
     opacity: 1;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Text alignment utilities */
+.text-start {
+    text-align: left !important;
+}
+
+/* Ensure diagram nodes align properly */
+.justify-content-start {
+    justify-content: flex-start !important;
 }
