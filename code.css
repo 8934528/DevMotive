@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(135deg, #f0e9f5 0%, #e0d3ed 100%);
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #2c1b3a;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.08);
+    letter-spacing: -0.02em;
+}
+
+.card {
+    transition: transform 0.25s ease-in-out, box-shadow 0.3s ease;
+    border-radius: 28px !important;
+    overflow: hidden;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px -8px rgba(60, 20, 70, 0.25) !important;
+}
+
+.card-body {
+    padding: 2rem 1.2rem;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #1f1f2b;
+    margin-top: 0.5rem;
+}
+
+.card i {
+    color: #1f1f2b;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.card:hover i {
+    opacity: 1;
+}
+
+/* 11 unique background colors – one for each card */
+.row > .col:nth-child(1) .card { background-color: hsl(350, 70%, 80%); }  /* soft pink */
+.row > .col:nth-child(2) .card { background-color: hsl(25, 80%, 75%); }   /* peach */
+.row > .col:nth-child(3) .card { background-color: hsl(180, 60%, 70%); }  /* mint */
+.row > .col:nth-child(4) .card { background-color: hsl(300, 60%, 80%); }  /* lavender */
+.row > .col:nth-child(5) .card { background-color: hsl(60, 70%, 75%); }   /* honey */
+.row > .col:nth-child(6) .card { background-color: hsl(120, 50%, 75%); }  /* seafoam */
+.row > .col:nth-child(7) .card { background-color: hsl(200, 70%, 75%); }  /* sky */
+.row > .col:nth-child(8) .card { background-color: hsl(30, 90%, 75%); }   /* apricot */
+.row > .col:nth-child(9) .card { background-color: hsl(280, 60%, 80%); }  /* orchid */
+.row > .col:nth-child(10) .card { background-color: hsl(40, 80%, 75%); }  /* marigold */
+.row > .col:nth-child(11) .card { background-color: hsl(80, 70%, 75%); }  /* lime */
