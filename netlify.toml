@@ -1,17 +1,16 @@
-# netlify.toml
 
 [build]
   # This tells Netlify to publish from the root directory
   publish = "."
 
-# No need for redirects since we want to serve code.html as the main page
-# Instead, let's create a proper redirect rule
+# No need for redirects since i want to serve code.html as the main page
+# Instead, i'll create a proper redirect rule
 [[redirects]]
   from = "/"
   to = "/code.html"
   status = 200
 
-# Optional: Handle 404s
+# Handle 404s
 [[redirects]]
   from = "/*"
   to = "/code.html"
@@ -31,4 +30,3 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-    
