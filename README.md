@@ -1,12 +1,23 @@
 # DevMotive
 
-DevMotive is a visual reminder designed to help developers focus on the daily habits and mindsets that lead to continuous growth. The project presents twelve vibrant cards, each highlighting a key practice such as coding daily, learning from others, teaching, taking notes, building projects, using GitHub, planning, dedicating time to learning, engaging with tech communities, reading books and docs, staying curious, and exploring the complete programming path.
+DevMotive helps developers stay motivated by showing daily coding habits on colorful cards. The background changes between two images every 5 seconds.
 
-The twelfth card is special - it opens a comprehensive modal showing the programming journey from low-level languages to modern frameworks, all connected in a beautiful visual diagram. This serves as a roadmap for developers at any stage of their career.
+## 🚀 Purpose
 
-The background features a dynamic image rotator that switches between two beautiful images every 5 seconds, creating a fresh and engaging visual experience. Each image is softly blurred to ensure the content remains the focus while adding depth to the design.
+The goal of this project is to help developers build strong coding habits through structured guidance and visual interaction.
 
-The design uses an unconventional, energizing color palette to make the experience inspiring and memorable. By keeping these habits visible, developers can gently reinforce their commitment to improvement and build a sustainable path toward mastery.
+---
+
+## 📁 What's Inside
+
+| File/Folder  | What it does                            |
+|--------------|-----------------------------------------|
+| `code.html`  | Main page with 12 habit cards           |
+| `code.css`   | All styles and colors                   |
+| `code.js`    | Makes the modal and image changer work  |
+| `assets/`    | Images and icon files                   |
+
+---
 
 ## Project Structure
 
@@ -21,3 +32,46 @@ The design uses an unconventional, energizing color palette to make the experien
         ├── code.js
         ├── netlify.toml
         └── README.md
+
+---
+
+## 🧩 The 12 Cards
+
+| Card   | What it's about                       |
+|--------|---------------------------------------|
+| 1      | Code every day                        |
+| 2      | Learn from others                     |
+| 3      | Teach what you know                   |
+| 4      | Take notes                            |
+| 5      | Build projects                        |
+| 6      | Use GitHub                            |
+| 7      | Plan your work                        |
+| 8      | Learn daily                           |
+| 9      | Join communities                      |
+| 10     | Read docs & books                     |
+| 11     | Stay curious                          |
+| 12     | Full roadmap (click to open diagram)  |
+
+---
+
+## How it works
+
+- Click any card to see more details
+
+- Card 12 opens a big diagram showing the full programming path
+
+- Background images switch every 5 seconds
+
+- Images are blurred so cards are easy to read
+
+---
+
+## Need help?
+
+Open the folder, run code.html in any browser, and you're ready to go.
+
+---
+
+'Happy Coding'
+
+---
