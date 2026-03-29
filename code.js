@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DevMotive: small habits, big growth. keep going!');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     // Bootstrap tooltips and popovers
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -40,11 +41,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // floating animation to diagram nodes
+    // Floating animation to diagram nodes
     const nodes = document.querySelectorAll('.diagram-node');
-    nodes.forEach((node, index) => {
-        node.style.animation = `float ${3 + (index % 5) * 0.2}s ease-in-out infinite`;
-    });
+    if (!prefersReducedMotion) {
+        nodes.forEach((node, index) => {
+            node.style.animation = `float ${3 + (index % 5) * 0.2}s ease-in-out infinite`;
+        });
+    }
+
+    // Reveal cards as they enter viewport
+    const cardColumns = document.querySelectorAll('#cardsContainer > .col');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+        cardColumns.forEach(col => revealObserver.observe(col));
+    } else {
+        cardColumns.forEach(col => col.classList.add('revealed'));
+    }
+
+    // Lightweight card tilt interaction for desktop
+    if (!prefersReducedMotion) {
+        const interactiveCards = document.querySelectorAll('.paper-card');
+        interactiveCards.forEach(card => {
+            card.addEventListener('mousemove', (event) => {
+                if (window.innerWidth <= 991) return;
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                const rotateX = ((y / rect.height) - 0.5) * -4;
+                const rotateY = ((x / rect.width) - 0.5) * 4;
+                card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    }
 
     // Background image changer
     const backgroundImages = [
@@ -104,11 +144,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // modal for mobile
     const programmingModal = document.getElementById('programmingPathModal');
     if (programmingModal) {
+        const modalBody = programmingModal.querySelector('.modal-body');
+        const modalQuickChips = programmingModal.querySelectorAll('.modal-chip');
+        const modalSections = programmingModal.querySelectorAll('.diagram-level[id]');
+
+        const setActiveChip = (id) => {
+            modalQuickChips.forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.target === `#${id}`);
+            });
+        };
+
+        modalQuickChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const section = programmingModal.querySelector(chip.dataset.target);
+                if (!section || !modalBody) return;
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveChip(section.id);
+            });
+        });
+
+        if ('IntersectionObserver' in window && modalBody) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveChip(entry.target.id);
+                    }
+                });
+            }, { root: modalBody, threshold: 0.45 });
+
+            modalSections.forEach(section => sectionObserver.observe(section));
+        }
+
         programmingModal.addEventListener('shown.bs.modal', function () {
-            const modalBody = this.querySelector('.modal-body');
             if (modalBody) {
                 modalBody.scrollTop = 0;
             }
+            setActiveChip('levelFoundations');
             
             // popover placement on mobile
             if (window.innerWidth <= 576) {
@@ -145,39 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     });
 
-    // loading animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .card {
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-        }
-        
-        .row > .col:nth-child(1) .card { animation-delay: 0.1s; }
-        .row > .col:nth-child(2) .card { animation-delay: 0.15s; }
-        .row > .col:nth-child(3) .card { animation-delay: 0.2s; }
-        .row > .col:nth-child(4) .card { animation-delay: 0.25s; }
-        .row > .col:nth-child(5) .card { animation-delay: 0.3s; }
-        .row > .col:nth-child(6) .card { animation-delay: 0.35s; }
-        .row > .col:nth-child(7) .card { animation-delay: 0.4s; }
-        .row > .col:nth-child(8) .card { animation-delay: 0.45s; }
-        .row > .col:nth-child(9) .card { animation-delay: 0.5s; }
-        .row > .col:nth-child(10) .card { animation-delay: 0.55s; }
-        .row > .col:nth-child(11) .card { animation-delay: 0.6s; }
-        .row > .col:nth-child(12) .card { animation-delay: 0.65s; }
-    `;
-    document.head.appendChild(style);
 });
 
 function scrollToTop() {

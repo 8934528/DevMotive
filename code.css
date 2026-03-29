@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-size: cover;
     background-position: center;
@@ -26,6 +30,64 @@ body::before {
     filter: blur(8px);
     z-index: -1;
     transition: background-image 1.5s ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(20,18,31,0.08));
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1180px;
+}
+
+.hero-panel {
+    background: rgba(255, 255, 255, 0.68);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 18px;
+    box-shadow: 0 14px 35px rgba(27, 17, 44, 0.12);
+    padding: 1.2rem 1rem;
+}
+
+.hero-kicker {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: #5d4f89;
+}
+
+.hero-subtitle {
+    color: #332f4f;
+    font-size: clamp(0.92rem, 2.1vw, 1.05rem);
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-professional {
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.1rem;
+    background: linear-gradient(135deg, #5f65f6, #7f55c7);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 12px 24px rgba(95, 101, 246, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn-professional:hover,
+.btn-professional:focus-visible {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(95, 101, 246, 0.35);
+    filter: brightness(1.04);
 }
 
 /* Mobile Navigation */
@@ -87,12 +149,17 @@ h1 {
 /* Paper Card Effect */
 .paper-card {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-radius: 14px !important;
+    border-top-left-radius: 60% !important;
+    border-top-right-radius: 14px !important;
+    border-bottom-right-radius: 60% !important;
+    border-bottom-left-radius: 14px !important;
     overflow: hidden;
     cursor: default;
     position: relative;
     background: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    animation: cardFloat 5.5s ease-in-out infinite;
+    border: 1px solid rgba(255,255,255,0.52) !important;
 }
 
 .paper-card::before {
@@ -109,8 +176,20 @@ h1 {
 }
 
 .paper-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 30px -5px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5) inset !important;
+}
+
+.paper-card:focus-within {
+    box-shadow: 0 0 0 3px rgba(95, 101, 246, 0.35), 0 20px 30px -5px rgba(0,0,0,0.15) !important;
+}
+
+.row > .col:nth-child(odd) .paper-card {
+    animation-delay: 0.25s;
+}
+
+.row > .col:nth-child(even) .paper-card {
+    animation-delay: 0.55s;
 }
 
 .paper-card:hover::before {
@@ -128,7 +207,6 @@ h1 {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>');
     opacity: 0.1;
     pointer-events: none;
-    border-radius: inherit;
 }
 
 .card-body {
@@ -157,6 +235,7 @@ h1 {
 
 .card:hover i {
     opacity: 1;
+    transform: translateY(-2px);
 }
 
 .card-number {
@@ -198,34 +277,100 @@ h1 {
 .row > .col:nth-child(11) .card { background-color: hsl(80, 70%, 75%); }  /* lime */
 .row > .col:nth-child(12) .card { background: linear-gradient(145deg, #ffb6c1, #ffdab9); }  /* special gradient */
 
+#cardsContainer > .col {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#cardsContainer > .col.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Modal Styles */
 .modal-content {
-    border-radius: 20px;
     border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 45px rgba(22, 19, 35, 0.22);
 }
 
 .modal-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    border-radius: 20px 20px 0 0;
+    align-items: flex-start;
 }
 
 .modal-header .btn-close {
     filter: brightness(0) invert(1);
 }
 
+.modal-subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+}
+
+.modal-quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+}
+
+.modal-chip {
+    border: 1px solid rgba(95, 101, 246, 0.25);
+    background: rgba(255, 255, 255, 0.85);
+    color: #2b2b45;
+    border-radius: 999px;
+    padding: 0.42rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.modal-chip:hover,
+.modal-chip:focus-visible,
+.modal-chip.active {
+    background: linear-gradient(135deg, #5f65f6, #7f55c7);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 10px 22px rgba(95, 101, 246, 0.28);
+}
+
+.diagram-level {
+    scroll-margin-top: 90px;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    background: rgba(248, 249, 250, 0.55);
+}
+
+.btn-outline-professional {
+    border-color: rgba(95, 101, 246, 0.4);
+    color: #4c4dbf;
+    font-weight: 600;
+}
+
+.btn-outline-professional:hover,
+.btn-outline-professional:focus-visible {
+    border-color: #5f65f6;
+    background-color: #5f65f6;
+    color: #fff;
+}
+
 .path-diagram {
     background: #f8f9fa;
-    border-radius: 15px;
     padding: 15px;
     overflow-x: auto;
+    border-radius: 14px;
 }
 
 @media (max-width: 768px) {
     .path-diagram {
         padding: 10px;
         margin: 0 -10px;
-        border-radius: 10px;
     }
 }
 
@@ -269,7 +414,6 @@ h1 {
 
 .specialization-group {
     background: rgba(255,255,255,0.7);
-    border-radius: 12px;
     padding: 12px;
     height: 100%;
 }
@@ -287,7 +431,6 @@ h1 {
     background: linear-gradient(135deg, #6c5ce7, #a363d9);
     color: white;
     padding: 8px 16px;
-    border-radius: 25px;
     font-size: 0.85rem;
     font-weight: 500;
     box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
@@ -295,6 +438,7 @@ h1 {
     border: none;
     cursor: pointer;
     flex: 0 1 auto;
+    border-radius: 999px;
 }
 
 @media (max-width: 576px) {
@@ -328,12 +472,12 @@ h1 {
 
 .diagram-node:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.25), 0 6px 20px rgba(108, 92, 231, 0.3);
 }
 
 .connector-line {
     height: 15px;
     border-left: 2px dashed #a8a8a8;
-    border-right: 2px dashed #a8a8a8;
     border-bottom: 2px dashed #a8a8a8;
     margin: 10px 0;
     opacity: 0.3;
@@ -347,9 +491,10 @@ h1 {
 
 .explanation-card {
     background: #f8f9fa;
-    border-radius: 12px;
     padding: 15px;
     height: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 @media (max-width: 576px) {
@@ -372,7 +517,7 @@ h1 {
 
 .connections-explanation {
     background: #e8f4f8 !important;
-    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Popover Custom Styles */
@@ -386,10 +531,10 @@ h1 {
 .popover-header {
     background: linear-gradient(135deg, #6c5ce7, #a363d9);
     color: white;
-    border-radius: 12px 12px 0 0;
     font-weight: 600;
     padding: 12px 15px;
     border: none;
+    border-radius: 12px 12px 0 0;
 }
 
 .popover-body {
@@ -426,6 +571,24 @@ h1 {
     100% { transform: translateY(0px); }
 }
 
+@keyframes cardFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .paper-card {
+        animation: none;
+    }
+
+    #cardsContainer > .col {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* Text alignment utilities */
 .text-start {
     text-align: left !important;
@@ -434,4 +597,18 @@ h1 {
 /* Ensure diagram nodes align properly */
 .justify-content-start {
     justify-content: flex-start !important;
+}
+
+@media (max-width: 576px) {
+    .modal-header {
+        padding-right: 0.85rem;
+    }
+
+    .modal-subtitle {
+        font-size: 0.82rem;
+    }
+
+    .modal-chip {
+        font-size: 0.75rem;
+    }
 }
