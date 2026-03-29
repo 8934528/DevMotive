@@ -39,8 +39,15 @@
     <div class="mobile-spacer d-lg-none"></div>
 
     <div class="container py-5">
-        <div class="d-flex align-items-center justify-content-center mb-3 mb-lg-5">
-            <h1 class="display-4 fw-bold text-center mb-0 me-3 mobile-headline">Improve Yourself As A Developer.</h1>
+        <div class="hero-panel text-center mb-4 mb-lg-5">
+            <p class="hero-kicker mb-2">Developer Growth Framework</p>
+            <div class="d-flex align-items-center justify-content-center mb-2">
+                <h1 class="display-4 fw-bold text-center mb-0 me-3 mobile-headline">Improve Yourself As A Developer.</h1>
+            </div>
+            <p class="hero-subtitle mb-3">Build strong habits, track your direction, and stay consistent with a clear learning system.</p>
+            <button class="btn btn-professional" type="button" data-bs-toggle="modal" data-bs-target="#programmingPathModal">
+                <i class="bi bi-diagram-3 me-2"></i>View Programming Path
+            </button>
         </div>
         
         <div class="row g-4" id="cardsContainer">
@@ -184,18 +191,28 @@
         <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="programmingPathModalLabel">The Programming Path</h5>
+                    <div>
+                        <h5 class="modal-title mb-1" id="programmingPathModalLabel">The Programming Path</h5>
+                        <p class="modal-subtitle mb-0">A practical roadmap from foundations to specialization and long-term mastery.</p>
+                    </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <p class="lead mb-4 text-center">Your journey from fundamentals to mastery - each concept builds upon the last, creating an interconnected web of knowledge.</p>
+
+                        <div class="modal-quick-nav mb-3">
+                            <button class="modal-chip" type="button" data-target="#levelFoundations">Foundations</button>
+                            <button class="modal-chip" type="button" data-target="#levelCore">Core Languages</button>
+                            <button class="modal-chip" type="button" data-target="#levelSpecializations">Specializations</button>
+                            <button class="modal-chip" type="button" data-target="#levelMastery">Mastery</button>
+                        </div>
                         
                         <!-- Diagram Section - Mobile Optimized -->
                         <div class="path-diagram mb-4">
                             <div class="diagram-container">
                                 <!-- Level 1: Foundations -->
-                                <div class="diagram-level text-center">
+                                <div class="diagram-level text-center" id="levelFoundations">
                                     <div class="level-title">Foundations</div>
                                     <div class="diagram-nodes justify-content-center">
                                         <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Algorithm" data-bs-content="The logic behind everything - problem-solving steps, computational thinking, and efficient solutions.">Algorithm</button>
@@ -205,7 +222,7 @@
                                 </div>
                                 
                                 <!-- Level 2: Core Languages -->
-                                <div class="diagram-level text-center">
+                                <div class="diagram-level text-center" id="levelCore">
                                     <div class="level-title">Core Languages</div>
                                     <div class="diagram-nodes justify-content-center">
                                         <button class="diagram-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="C" data-bs-content="Procedural language, memory manipulation, system programming, and foundation for many modern languages.">C</button>
@@ -222,7 +239,7 @@
                                 </div>
                                 
                                 <!-- Level 3: Specialized Areas -->
-                                <div class="diagram-level text-center">
+                                <div class="diagram-level text-center" id="levelSpecializations">
                                     <div class="level-title">Specializations</div>
                                     
                                     <div class="specialization-grid">
@@ -279,7 +296,7 @@
                                 </div>
                                 
                                 <!-- Level 4: Computer Programming -->
-                                <div class="diagram-level text-center">
+                                <div class="diagram-level text-center" id="levelMastery">
                                     <div class="level-title">Mastery</div>
                                     <div class="diagram-nodes justify-content-center">
                                         <button class="diagram-node master-node" data-bs-toggle="popover" data-bs-trigger="click focus" title="Computer Programming" data-bs-content="The holistic understanding - you don't just know languages, you understand paradigms, patterns, and can learn anything new quickly.">Computer Programming</button>
@@ -329,6 +346,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-professional" onclick="scrollToTop()">
+                        <i class="bi bi-arrow-up-circle me-2"></i>Back to Top
+                    </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
